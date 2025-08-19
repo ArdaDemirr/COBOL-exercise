@@ -1,38 +1,40 @@
-IDENTIFICATION DIVISION.
-PROGRAM-ID. MATH.
-AUTHOR. ARDA DEMIR.
-DATE-WRITTEN.August 19th 2025
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. MATH.
+       AUTHOR. ARDA DEMIR.
+       DATE-WRITTEN. August 19th 2025.
 
-ENVIRONMENT DIVISION.
+       ENVIRONMENT DIVISION.
 
-DATA DIVISION.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 num1    PIC 9(4).
+       01 num2    PIC 9(4).
+       01 resSum  PIC 9(5).
+       01 resSub  PIC 9(5).
+       01 resMult PIC 9(8).
+       01 resDiv  PIC 9(4)V9(2).  *> allows 2 decimal places
+       01 resComp PIC 9(10).
 
-FILE SECTION.
+       PROCEDURE DIVISION.
+           DISPLAY 'Enter First Number: ' WITH NO ADVANCING.
+           ACCEPT num1.
 
-WORKING-STORAGE SECTION.
-    01 num1 PIC 9(4).
-    01 num2 PIC 9(4).
-    01 resSum PIC 9(5).
-    01 resSub PIC 9(4).
-    01 resMult PIC 9(8).
-    01 resDiv PIC 9(4).
-    01 resComp PIC 9(10).
-PROCEDURE DIVISION.
+           DISPLAY 'Enter Second Number: ' WITH NO ADVANCING.
+           ACCEPT num2.
 
-DISPLAY 'Enter First Number: ' WITH NO ADVANCING.
-ACCEPT num1.
-DISPLAY 'Enter Second Number: ' WITH NO ADVANCING.
-ACCEPT num2.
-ADD num1 TO num2 GIVING resSum.
-SUBTRACT num1 FROM num2 GIVING resSub
-MULTIPLY num1 BY num2 GIVING resMult.
-DIVIDE num1 BY num2 GIVING resDiv.
-DISPLAY 'Your First number was: ' num1
-DISPLAY 'Your Second number was: ' num2
-DISPLAY 'Your addition result is: ' resSum
-DISPLAY 'Your substraction result is: ' resSub
-DISPLAY 'Your multiplication result is: ' resMult.
-DISPLAY 'Your division result is: ' resDiv.
-COMPUTE resComp = num1 + ((num2 - 5) * 2 * num1).
-DISPLAY 'Your Compute result is: ' resComp.
-STOP RUN.
+           ADD num1 TO num2 GIVING resSum.
+           SUBTRACT num1 FROM num2 GIVING resSub.
+           MULTIPLY num1 BY num2 GIVING resMult.
+           DIVIDE num1 BY num2 GIVING resDiv.
+
+           DISPLAY 'Your First number was: ' num1.
+           DISPLAY 'Your Second number was: ' num2.
+           DISPLAY 'Your addition result is: ' resSum.
+           DISPLAY 'Your subtraction result is: ' resSub.
+           DISPLAY 'Your multiplication result is: ' resMult.
+           DISPLAY 'Your division result is: ' resDiv.
+
+           COMPUTE resComp = num1 + ((num2 - 5) * 2 * num1).
+           DISPLAY 'Your Compute result is: ' resComp.
+
+           STOP RUN.
